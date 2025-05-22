@@ -20,7 +20,7 @@ def extract_text_from_file(uploaded_file):
 def summarize_brief(text):
     prompt = f"Summarize this campaign brief in a few key points:\n{text}"
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content.strip()
@@ -28,7 +28,7 @@ def summarize_brief(text):
 def brainstorm_ideas(summary):
     prompt = f"Based on this brief summary, brainstorm campaign ideas with headlines, visual directions, and taglines:\n{summary}"
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.9
     )
